@@ -1,5 +1,4 @@
 '''basic markov chain to generate tai lopez quotes'''
-from string import punctuation
 from random import choice, randint
 from time import sleep
 from typing import List
@@ -7,7 +6,7 @@ from typing import List
 
 def tokenize(words: str) -> List[str]:
     '''split into tokens based on spaces, strip punctuation'''
-    return (''.join(c.lower() for c in words if c not in punctuation)).split()
+    return (''.join(c for c in words)).split()
 
 
 def ngrams(words: str):

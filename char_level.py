@@ -3,6 +3,7 @@ from string import punctuation
 from random import choice, randint
 from time import sleep
 
+NGRAM_LEVEL = 40
 
 def tokenize(words: str):
     '''split into char level tokens based on spaces, strip punctuation'''
@@ -15,7 +16,7 @@ def ngrams(words: str):
     for i in range(len(words) - 3):
         if not ngrams.get(words[i], False):
             ngrams[words[i]] = []
-        for j in range(1, 40):
+        for j in range(1, NGRAM_LEVEL):
             ngrams[words[i]].append(''.join(words[i + 1: i + 1 + j]))
 
     return words, ngrams
