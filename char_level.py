@@ -5,9 +5,8 @@ from time import sleep
 
 
 def tokenize(words: str):
-    '''split into tokens based on spaces, strip punctuation'''
-    return (''.join(c.lower() for c in words if c not in punctuation)).split()
-
+    '''split into char level tokens based on spaces, strip punctuation'''
+    return [c for c in words if not c == "\n"]
 
 def ngrams(words: str):
     '''generate ngrams from a string'''
@@ -16,8 +15,9 @@ def ngrams(words: str):
     for i in range(len(words) - 3):
         if not ngrams.get(words[i], False):
             ngrams[words[i]] = []
-        for j in range(1, 3):
-            ngrams[words[i]].append(' '.join(words[i + 1: i + 1 + j]))
+        for j in range(1, 40):
+            ngrams[words[i]].append(''.join(words[i + 1: i + 1 + j]))
+
     return words, ngrams
 
 
@@ -27,8 +27,8 @@ def create_quote(tokens: list, grams: dict):
     quote = last_word.capitalize()
     for i in range(randint(30, 45)):
         last_word = choice(grams[last_word])
-        quote += " " + last_word
-        last_word = last_word.split()[-1]
+        quote += last_word
+        last_word = last_word[-1]
     return quote
 
 
