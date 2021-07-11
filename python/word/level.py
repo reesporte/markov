@@ -5,9 +5,8 @@ from typing import List
 
 
 def tokenize(words: str) -> List[str]:
-    '''split into tokens based on spaces, strip punctuation'''
-    return (''.join(c for c in words)).split()
-
+    '''split into tokens based on spaces'''
+    return words.split()
 
 def ngrams(words: str):
     '''generate ngrams from a string'''
@@ -33,18 +32,11 @@ def create_quote(tokens: list, grams: dict):
 
 
 def main():
-    '''read words and generate quotes every five seconds'''
+    '''read words and generate quote'''
     with open('words.txt', 'r') as f:
         words = f.read()
     tokens, grams = ngrams(words)
-    while True:
-        try:
-            print(create_quote(tokens, grams))
-            print()
-            sleep(5)
-        except KeyboardInterrupt: 
-            break
-
-
+    print(create_quote(tokens, grams))
+    
 if __name__ == '__main__':
     main()

@@ -1,19 +1,27 @@
-# tai 
+# markov 
 
-it's called because it generates tai lopez quotes from [one](https://www.youtube.com/watch?v=Cv1RJTHf5fk) video 
-
-but it will generate quotes from any `words.txt` file you put in here
+use a markov chain to generate quotes from any `words.txt` file you put in here
 
 ## usage
 set up a `words.txt` file with the training material you want to use, then run 
 ```
-python3 char_level.py
+python3 python/char/level.py
 ```
 
 or 
 
 ```
-python3 word_level.py
+python3 python/word/level.py
+```
+
+or 
+```
+go run go/char/level.go
+```
+
+or
+```
+go run go/word/level.go
 ```
 
 ## example output
@@ -27,3 +35,8 @@ Here's some example output from the character level one:
 And from the word level one:
 
 > The knowledge. The real reason I keep this Lamborghini here in a little video, it's a reminder. A reminder that long ago that long ago that I didn't have to drive up here is that it's about how I keep this is mine. True story. And another mentor. And a few more mentors later I was in a little video,
+
+
+## note
+
+it's essentially the same code in the go and python directories, i just wanted to try writing it in go too
